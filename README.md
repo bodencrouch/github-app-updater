@@ -1,22 +1,16 @@
 # github-app-updater
 
-Core library for GitHub release auto-updates: asset download, crypto verify, install, restart.
+Download a GitHub release asset, check it, install it, and restart the app. Supports a few restart strategies depending on how you ship (script, frozen binary, etc.).
+
+Wire it up with your repo owner/name and a place to put downloads. Pair with `qtpy-release-chooser` if you want a UI for picking the release.
 
 ## Install
 
 ```bash
-pip install -e .
-# or from GitHub:
-pip install git+https://github.com/bodencrouch/github-app-updater
+pip install git+https://github.com/bodencrouch/github-app-updater.git
 ```
 
-## Origin
-
-Extracted from the [PyKotor](https://github.com/bodencrouch/PyKotor) monorepo `utility` / related packages.
-KotOR-specific couplings were removed or made optional for standalone use.
-
-### DAG
-Optional: `loggerplus`, `app-process-lifecycle`. Qt UI lives in `qtpy-release-chooser`.
+Needs `requests` (and usually `pycryptodome` if you verify signatures).
 
 ## License
 

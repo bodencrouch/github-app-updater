@@ -41,18 +41,18 @@ if __name__ == "__main__":
 
         file_absolute_path = pathlib.Path(__file__).resolve()
 
-        pykotor_path = file_absolute_path.parents[6] / "Libraries" / "PyKotor" / "src" / "pykotor"
-        if pykotor_path.exists():
-            update_sys_path(pykotor_path.parent)
-        pykotor_gl_path = (
-            file_absolute_path.parents[6] / "Libraries" / "PyKotorGL" / "src" / "pykotor"
+        vendor_lib_path = file_absolute_path.parents[6] / "Libraries" / "VendorLib" / "src" / "VendorLib"
+        if vendor_lib_path.exists():
+            update_sys_path(vendor_lib_path.parent)
+        vendor_gl_path = (
+            file_absolute_path.parents[6] / "Libraries" / "VendorGL" / "src" / "VendorLib"
         )
-        if pykotor_gl_path.exists():
-            update_sys_path(pykotor_gl_path.parent)
+        if vendor_gl_path.exists():
+            update_sys_path(vendor_gl_path.parent)
         utility_path = file_absolute_path.parents[6] / "Libraries" / "Utility" / "src"
         if utility_path.exists():
             update_sys_path(utility_path)
-        toolset_path = file_absolute_path.parents[5] / "Tools/HolocronToolset/src/toolset"
+        toolset_path = file_absolute_path.parents[5] / "Tools/ExampleToolset/src/toolset"
         if toolset_path.exists():
             update_sys_path(toolset_path.parent)
             if __name__ == "__main__":
@@ -911,7 +911,7 @@ if __name__ == "__main__":
 
     sys.excepthook = onAppCrash
     test1 = CompleteRepoData.load_repo_from_files(
-        r"C:\GitHub\PyKotor\KOTORCommunityPatches_Vanilla_KOTOR_Script_Source\json files"
+        r"C:\path\to\json files"
     )
     test1_dict = test1.to_dict()
     print(json.dumps(test1_dict, indent=4))
